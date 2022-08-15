@@ -13,8 +13,6 @@
 
 #include "RHReliableDatagram.h"
 
-#include "debug.h"
-
 ////////////////////////////////////////////////////////////////////
 // Constructors
 RHReliableDatagram::RHReliableDatagram(RHGenericDriver &driver, uint8_t thisAddress)

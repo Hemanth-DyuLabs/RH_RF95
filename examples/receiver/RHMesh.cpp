@@ -14,8 +14,6 @@
 
 #include "RHMesh.h"
 
-#include "debug.h"
-
 uint8_t RHMesh::_tmpMessage[RH_ROUTER_MAX_MESSAGE_LEN];
 
 
