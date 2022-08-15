@@ -22,7 +22,6 @@
 #define _DU_DEBUG_H_
 
 #include <Arduino.h>
-#include "defines.h"
 
 typedef enum
 {
