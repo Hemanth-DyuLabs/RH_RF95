@@ -9,7 +9,7 @@
 // the RFM95W, Adafruit Feather M0 with RFM95
 
 #include <SPI.h>
-#include "RH_RF95.h"
+#include <RH_RF95.h>
 
 // Singleton instance of the radio driver
 RH_RF95 rf95(10, 2); // RH_RF95 rf95(SS,DIO0)
