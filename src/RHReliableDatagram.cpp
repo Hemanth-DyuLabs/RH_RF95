@@ -92,7 +92,6 @@ bool RHReliableDatagram::sendtoWait(uint8_t *buf, uint8_t len, uint8_t address)
 		uint16_t timeout = _timeout + (_timeout * (random() & 0xFF) / 256);
 #else
 		uint16_t timeout = _timeout + (_timeout * random(0, 256) / 256) + 5000;
-	    _SPRINTF(DEBUG_INFO, "Timer_: %d \n", timeout);
 #endif
 		int32_t timeLeft;
 		while ((timeLeft = timeout - (millis() - thisSendTime)) > 0)
@@ -106,17 +105,14 @@ bool RHReliableDatagram::sendtoWait(uint8_t *buf, uint8_t len, uint8_t address)
 					if (from == address && to == _thisAddress && (flags & RH_FLAGS_ACK) && (id == thisSequenceNumber))
 					{
 						// Its the ACK we are waiting for
-						_SPRINTLN(DEBUG_INFO, "Its the ACK we are waiting for");
 						return true;
 					}
 					else if (!(flags & RH_FLAGS_ACK) && (id == _seenIds[from]))
 					{
 						// This is a request we have already received. ACK it again
 						acknowledge(id, from);
-						_SPRINTLN(DEBUG_INFO, "This is a request we have already received. ACK it again");
 					}
 					// Else discard it
-					_SPRINTLN(DEBUG_INFO,"Else discard it");
 				}
 			}
 			// Not the one we are waiting for, maybe keep waiting until timeout exhausted
@@ -126,7 +122,6 @@ bool RHReliableDatagram::sendtoWait(uint8_t *buf, uint8_t len, uint8_t address)
 		YIELD;
 	}
 	// Retries exhausted
-	_SPRINTLN(DEBUG_INFO, "Retries exhausted");
 	return false;
 }
 

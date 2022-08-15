@@ -66,7 +66,6 @@ bool RHMesh::doArp(uint8_t address)
 
 	// Wait for a reply, which will be unicast back to us
 	// It will contain the complete route to the destination
-	_SPRINTF(DEBUG_INFO, "mess: %d \n", *_tmpMessage);
 	uint8_t messageLen = sizeof(_tmpMessage);
 	// FIXME: timeout should be configurable
 	unsigned long starttime = millis();
